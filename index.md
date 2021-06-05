@@ -23,8 +23,19 @@ We approached our project with two intentions of validation. First we were tryin
 
 The second validation we worked on was validation of our premise. Does more information about alt text best practices improve a content creator's image descriptions. Although inuitively true we wanted to be see what would change for ourselves. We developed two Google forms with 3 images. The first form just asked for image descriptions (alt text). The second form included the object-action-context mantra and shared the 'intent' of the image in the hypothetical content. We sent this out to our class, asking those with even / odd birthday dates to go to form A/B. We did talk about how our population wasn't refelctive of a real world population since it was made up of students who have recently studied accessibility technology and best practices. 
 
+Our results weren't ideal, 10 people responded to the contextless form while we only received 2 to our form with tips. However, a few interesting items are noticable. 
+1. For a chart we included, without context descriptions ranged widely from simple description of the title to explanations of the time without any data to fairly relvevant but verbose descriptions. When we gave context about the key takeaway, we got very common alt text description. We feel this shows the importance of a content creator stopping to consider the context of the image. 
+2. For the 2nd image, of a child sledding on snow. We got further validation that providing context creates much more consistent & common descriptions
+3. Our two responses in the B form also were shorter, which from our studying & reading seems to be preferred in many contexts. 
+4. Overall our population of respondants didn't seem to consistently use gendered language one way or the other between the two forms. In the second form we did note if gender was known or not important. However many respondents in the A form who were given no gender information still refrained from assumptions. We attribute this mostly to our unique population. 
+
+Overall, we do feel that our limited results show that considering context, and thus best practices, has a positive net impact on image description quality. But much more scientific work should be done to validate. 
+
 ### Learnings and future work – 1-2 paragraphs: Describe what you learned and how this can be extended/ built on in the future.
 
+Firstly, we think there is a lot of promise in the JS-API in the long run. Being able to have a common plugin experience in the web, or on a desktop is a wonderful advancement. It will significantly improve the portability of accessibility technology plugins developed. As one of our speakers mentioned, portability is important to her in being able to access and migrate their experience commonly. 
+
+Our study of Alt text best practices in the world didn't result in any 'cannonical' guidance. We think there is significant opportunity for study on best practices and development of open source guides. There are communities with opinions, and effective guidance was uncovered, however we feel that academic/rigorous studies and results would improve the common understanding of what does 'good look like'. These studies may also serve to persuade more investment in existing Alt Text UIs and prompting by showing the change in human behavior. 
 
 ### References And Links
 [Code is available on GitHub](https://github.com/jennifergalley/uw-alt-text)
