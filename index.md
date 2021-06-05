@@ -19,6 +19,10 @@ Our solution to overcome these obstacles is to build an Office add-in that users
 
 ### Validation - about 2 paragraphs: What did you validate/what was your validation approach? What were the results of your validation?
 
+We approached our project with two intentions of validation. First we were trying to validate if this JS plug was this technically feasible and does it smoothly function within word. **EXPAND ON OUR WORK HERE**. 
+
+The second validation we worked on was validation of our premise. Does more information about alt text best practices improve a content creator's image descriptions. Although inuitively true we wanted to be see what would change for ourselves. We developed two Google forms with 3 images. The first form just asked for image descriptions (alt text). The second form included the object-action-context mantra and shared the 'intent' of the image in the hypothetical content. We sent this out to our class, asking those with even / odd birthday dates to go to form A/B. We did talk about how our population wasn't refelctive of a real world population since it was made up of students who have recently studied accessibility technology and best practices. 
+
 ### Learnings and future work – 1-2 paragraphs: Describe what you learned and how this can be extended/ built on in the future.
 
 
