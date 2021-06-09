@@ -46,6 +46,34 @@ Our results weren't ideal, 10 people responded to the contextless form while we 
 
 Overall, we do feel that our limited results show that considering context, and thus best practices, has a positive net impact on image description quality. But much more scientific work should be done to validate. The biggest noticable area of change was the chart description, suggesting charts may be the most hard to describe without considering context and intended takeaway. 
 
+### Add-in limitations
+
+There are two areas with possible shortcomings on the final implementation. The first and more noticeable is the amount of categories, we included four categories: decorative, image with people, chart; keeping in mind that decorative images are ubiquitous on any type of document, likewise image with people, and charts are dominant in formal documents and presentations. However, this is by no means an extensive list, given an image of a less general domain, there is not sufficient guidance to write a good alt text based on the image contents. Future work includes increasing the amount of categories, possibly adding sub-categories for some domains.
+
+Second, the problem of determining if the image description is a good semantical description of the surrounding text *and* if it conveys the intent the image is trying to describe is a complex and a somewhat ill-defined task (since it is relative to the author's intentions). A reasonable approximation is determining how related are the description with the text context, which on itself is a complex task as well. Here are two examples where our add-in fails on this task:
+
+**Example 1**
+
+The following example is an screenshot of [this article](https://coldteacollective.com/seven-tips-for-attending-your-first-black-lives-matter-protest/) transcribed to word. It contains an image with icons about what to wear, bring and do not bring to a protest. The description talks about how to go prepapared to a protest and what risks to expect when attending to one.
+
+![This image contains a description of how to prepare to a protest and a flyer of images related to how to protest safely, specifically what wo wear, what to bring, and what not to bring. The icons on the image are a jacket, goggles, a mask, snacks, an arm with text written on it, cash, bandages, ear plugs, phones, gloves, eyes, hands, protest signs, ear plugs, jewerly and a head with tied up hair.!](adv1.png)
+
+Trying the following captions showcase the limitation of the add-in:
+1. "goggles, mask, gloves, cash.": this description is a mere transcription of some of the icons in the image (something that an automated service could generate). In this case, the add-in does not alert anything. This is not flagged because the same disconnected words are scattered in the description. However, in this case is important to detail all the icons in the image, list and call out which ones to bring and not to bring.
+2. "An image of a protest": again, here the model is likely just taking advantage of the fact that 'protest' exists on the document multiple times. However, this is neither a description of the image (superficial or not), or a good alt text.
+
+
+**Example 2**
+
+The following example is an screenshot of [this article](https://www.happyschools.com/i797a-i797b-i797c-difference/) transcribed and editted in word. It contains an image with a screenshot of the I-797 form, and a description of different types of visa approval notices with a brief point about how USCIS uses these forms.
+
+![This image contains a brief description about different types of H1-B visa approval notcice formats and talks about how USCIS uses the I-797 from to announce the decision regarding a work petition submitted for processing. The image contains a picture of the I-797 form with some important fields highlighted.!](adv2.png)
+
+The caption "Work permission image" is flagged as not being relevant with the surrounding context. This is clearly not the case, since that is the literal description of the image, and is important to the context of the article. Here what is probably happening is that the lingo of the context is too domain specific (US inmigration paperwork and terminology), which can be absent in the training data of the model used to compare the alt text and the context.
+
+These two examples showcase two key problems of these types of models in general: robustness and domain shifting. This is why the approach in this add-in is a rather 'passive' suggestion, instead of trying to generate a description or get in the way of the user about the final alt-text. While this can be useful in some situations, it is possible is not applicable to all domains. This is why the deployment of this add-in would need to consier a broader range of categories, both on image description types, and on the eventual training of the text similarity model (we did not train this model ourselves).
+
+
 ### Learnings and future work – 1-2 paragraphs: Describe what you learned and how this can be extended/ built on in the future.
 
 Firstly, we think there is a lot of promise in the JS-API in the long run. Being able to have a common plugin experience in the web, or on a desktop is a wonderful advancement. It will significantly improve the portability of accessibility technology plugins developed. As one of our speakers mentioned, portability is important to her in being able to access and migrate their experience commonly. 
