@@ -23,6 +23,15 @@ Finally, the paper [“It’s Complicated”: Negotiating Accessibility and (Mis
 
 ### Solution– about 3 paragraphs: What did you do in your project- what did you design or implement? 
 
+We built an Office add-in for Word that users can add to their installation of Word to help them write better alt text, more consistently. The add-in technically supplements, but would functionally replace, the existing UI for adding alt text to an image. It has a couple of key features:
+
+- When a user adds an image to their document, if that image does not have alt text, then when the user selects that image, the add-in automatically prompts them to add alt text for the image. This is done through a dialog pop-up. (We intended for this functionality to work such that when the user inserted the image the task pane for our add-in automatically opened to prompt them to add the alt text, but this functionality proved impossible to troubleshoot and achieve in the time available.)
+- The add-in guides the user toward writing better alt text based on the contents and context of the image, using category-based guidance (people, chart/figure, etc.). The user answers a series of questions pertaining to their image for each category and receives tailored suggestions for writing clear, useful, and respectful alt text. This improves upon the default experience, which provides minimal, static guidance for every image.
+- Finally, if the user's provided alt text does not align very closely with the surrounding text of their document, the add-in will suggest that the alt text doesn't appear to be very relevant to the context and prompt the user to reevaluate it.
+
+By helping content creators remember to add informative alt text, hopefully we can improve the experience of blind and low-vision users reading them.
+
+
 ### Validation - about 2 paragraphs: What did you validate/what was your validation approach? What were the results of your validation?
 
 We approached our project with two intentions of validation. First we were trying to validate if this JS plug was this technically feasible and does it smoothly function within word. **EXPAND ON OUR WORK HERE**. 
