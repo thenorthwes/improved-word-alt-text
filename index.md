@@ -5,7 +5,7 @@ This project's goal is to develop a Word plug-in which modifies the default beha
 ### Video
 <iframe width="560" height="315" src="https://www.youtube.com/embed/fpSyG6D7LMI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-### Introduction– 1-3 paragraphs: Present the promise/ obstacle/ solution for your project— What is the problem you are solving and why is it important to solve it?
+### Introduction: Present the promise/ obstacle/ solution for your project— What is the problem you are solving and why is it important to solve it?
 Missing and/or bad alternative text for images in Office documents pose a significant challenge to users with visual impairments. Adding alt text to images is usually an afterthought for most content creators and with better and more proactive tooling, content creators will be reminded and encouraged to write better alt text more frequently thereby increasing the amount of well-described images in Office documents. Initially we were focused on creating an add-in for MS PowerPoint but the PowerPoint JS API isn't as robust and so we pivoted to making an add-in which will work for MS Word.
 
 The current approach to alt text in Office has 2 main problems we aim to solve with our plugin. Primarily the alt text UI is not proactive and it requires the user to manually search for it or manually use the accessibility checker. This is likely in favor of auto-opening the Design Ideas feature (in PPT) and to avoid annoying users, as accessibility does not have the importance and awareness for most users that it should. Another issue we aim to solve is that the alt text UI either lets the user do all the writing with minimal guidance, or generates a totally automated caption, regardless of context of document. Either the latest research around how to write good alt text just hasn’t made its way into the user interface yet, or they wanted to keep the guidance as simple as possible. We aim to improve the prompt about writing good alt text by reccomending best practices from reputable best practices we identify.
@@ -13,7 +13,7 @@ The current approach to alt text in Office has 2 main problems we aim to solve w
 Our solution to overcome these obstacles is to build an Office add-in that users can add to their installation of Office in the web and their installed product. The add-in would work as a replacement for the existing Alt text UI.When a user adds an image to their document, the add-in would automatically open the task pane and prompt them to add alt text for the image. The add-in would guide the user to writing good alt text based on the contents and context of the image, using category-based guidance (people, chart/figure, landscape, etc.). The user can expand their chosen category and read detailed guidance in the pane. This will improve upon the current experience, which provides static guidance for every image.
 
 
-### Related Work– 1-3 paragraphs: Talk about relevant work that closely connects with your project.
+### Related Work: Talk about relevant work that closely connects with your project.
 
 One of our sources, ["Person, Shoes, Tree. Is the Person Naked?" What People with Vision Impairments Want in Image Descriptions](https://www.microsoft.com/en-us/research/uploads/prod/2020/01/imagedesc_chi2020.pdf), was immensely helpful for motivating our project. Their findings revealed how image description preferences vary based on the source where digital images are encountered and the surrounding context. They interviewed blind and low-vision participants about their experiences and preferences about digital images in different sources. Most relevant to our work, they found that participants reported low engagement with image descriptions in productivity applications due to the fact that they were frequently missing, particularly in Word and PowerPoint documents. They also found that participants wanted image descriptions that were highly context-sensitive to the contents of the document, to give the alt text users as close of a representation to the sighted experience as possible.
 
@@ -21,7 +21,7 @@ Another of our sources, [Understanding Blind People’s Experiences with Compute
 
 Finally, the paper [“It’s Complicated”: Negotiating Accessibility and (Mis)Representation in Image Descriptions of Race, Gender, and Disability](https://canvas.uw.edu/courses/1465814/files/folder/guest%20lecture%20content?preview=76484687) helped inform our add-in's guidance on how to write good image descriptions with people in them. The paper motivated the importance of not making assumptions about people's gender, race, disability, and other identifying characteristics based on an image alone, and not describing them in the alt text of an image unless they have the photographed person's consent. This is one of the emerging spaces of respectful dialogue that we really felt was not well captured by out-of-the-box alt text guidance in Office applications, which does not touch at all on how to describe people. The guidance provided by this paper on how to describe people respectfully was very helpful in guiding our implementation.
 
-### Solution– about 3 paragraphs: What did you do in your project- what did you design or implement? 
+### Solution: What did you do in your project- what did you design or implement? 
 
 We built an Office add-in for Word that users can add to their installation of Word to help them write better alt text, more consistently. The add-in technically supplements, but would functionally replace, the existing UI for adding alt text to an image. It has a couple of key features:
 
@@ -32,7 +32,7 @@ We built an Office add-in for Word that users can add to their installation of W
 By helping content creators remember to add informative alt text, hopefully we can improve the experience of blind and low-vision users reading them.
 
 
-### Validation - about 2 paragraphs: What did you validate/what was your validation approach? What were the results of your validation?
+### Validation: What did you validate/what was your validation approach? What were the results of your validation?
 
 We approached our project with two intentions of validation. First we were trying to validate if this JS plug was this technically feasible and does it smoothly function within Office products. As mentioned, we wanted to develop this for PowerPoint, however the add-in API to image descriptions did not seem to be working as intended, to verify this was feasible we initially we approached the Office developers in two ways: first, after reading the documentation, it seemed that this is supported, but in practice it does not work, so we [opened them an isuse on the official office-js github repo](https://github.com/OfficeDev/office-js/issues/1889) which to this date remains assigned but unanswered. Second, we [posted a question in StackOverflow](https://stackoverflow.com/questions/67640701/is-it-possible-to-get-select-alt-text-in-powerpoint-using-the-js-api) their official tag (office-js), we recieved an answer eventually by a developer in PowerPoint, confirming this is not supported. Due to the uncertainity and delayed answers, we prematurely pivoted to Word as it was explained earlier, here we based our work on the documented APIs to retrieve/modify image descriptions and to attach handlers upon user events, which validated this add-in was feasible to build based on the active selected element (rather than automatically prompting on created images).
 
@@ -74,7 +74,7 @@ The caption "Work permission image" is flagged as not being relevant with the su
 These two examples showcase two key problems of these types of models in general: robustness and domain shifting. This is why the approach in this add-in is a rather 'passive' suggestion, instead of trying to generate a description or get in the way of the user about the final alt-text. While this can be useful in some situations, it is possible is not applicable to all domains. This is why the deployment of this add-in would need to consier a broader range of categories, both on image description types, and on the eventual training of the text similarity model (we did not train this model ourselves).
 
 
-### Learnings and future work – 1-2 paragraphs: Describe what you learned and how this can be extended/ built on in the future.
+### Learnings and future work: Describe what you learned and how this can be extended/ built on in the future.
 
 Firstly, we think there is a lot of promise in the JS-API in the long run. Being able to have a common plugin experience in the web, or on a desktop is a wonderful advancement. It will significantly improve the portability of accessibility technology plugins developed. As one of our speakers mentioned, portability is important to her in being able to access and migrate their experience commonly. 
 
